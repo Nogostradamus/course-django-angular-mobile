@@ -1,0 +1,10 @@
+<StackLayout>
+  <Label class="h2" text="Username"></Label>
+  <TextField [(ngModel)]="auth.username" autocapitalizationType="none"></TextField>
+  <Label class="h2" text="Password"></Label>
+  <TextField [(ngModel)]="auth.password" secure="true"  autocapitalizationType="none"></TextField>
+  <Button text="{{registerMode ? 'Register' : 'Login'}}" (tap)="submitForm()" class="-primary -rounded-lg"></Button>
+
+  <label (tap)="registerMode = true" *ngIf="!registerMode" text="Don't have an account yet? Register here"></label>
+  <label (tap)="registerMode = false" *ngIf="registerMode" text="You have an account? Login here"></label>
+</StackLayout>
