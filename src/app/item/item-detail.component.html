@@ -3,7 +3,7 @@
     <ActionItem icon="font://&#xf044;" class="fas h2" ios.position="right" (tap)="editClicked()"></ActionItem>
 </ActionBar>
 
-<StackLayout>
+<StackLayout class="page">
     <StackLayout orientation="horizontal">
         <Label text="&#xf005;" class="fas h2" [ngClass]="{'orange': movie.avg_rating > 0}"></Label>
         <Label text="&#xf005;" class="fas h2" [ngClass]="{'orange': movie.avg_rating > 1}"></Label>
@@ -18,7 +18,7 @@
         <Label text="Rate it !!!" class="h2"></Label>
         <StackLayout orientation="horizontal">
             <Label *ngFor="let rate of [1,2,3,4,5]" text="&#xf005;" class="h1"
-                [ngClass]="{'fas purple': highlight >= rate, 'far': highlight < rate}"
+                [ngClass]="{'fas purple': highlight >= rate, 'far white': highlight < rate}"
                 (tap)="setHightlight(rate)"></Label>
         </StackLayout>
         <Button text="Rate" (tap)="rateClicked()"></Button>

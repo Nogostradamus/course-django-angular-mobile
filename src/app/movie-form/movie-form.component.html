@@ -3,7 +3,7 @@
   <ActionItem icon="font://&#xf044;" class="fas h2" ios.position="right" (tap)="editClicked()"></ActionItem>
 </ActionBar>
 
-<StackLayout *ngIf="movie">
+<StackLayout class="page" *ngIf="movie">
   <Label class="h2" text="Title"></Label>
   <TextField [(ngModel)]="movie.title"></TextField>
   <Label class="h2" text="Description"></Label>

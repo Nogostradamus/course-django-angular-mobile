@@ -3,6 +3,7 @@ import { Auth } from "../models/Auth";
 import { ApiService } from '../api.service';
 import { Router } from '@angular/router';
 import { getString, setString } from "tns-core-modules/application-settings";
+import { SnackBar } from 'nativescript-material-snackbar';
 
 @Component({
   selector: 'ns-auth',
@@ -35,7 +36,10 @@ export class AuthComponent implements OnInit {
         (results: any) => {
           this.loginFunction();
         },
-        err => console.log(err)
+        err => {
+          const snackbar = new SnackBar();
+          snackbar.simple(`Can't register`);
+        }
       )
     } else {
       this.loginFunction();
@@ -48,7 +52,11 @@ export class AuthComponent implements OnInit {
         setString("mr-token", results.token);
         this.router.navigate(['/items'])
       },
-      err => console.log(err)
+      err => {
+        console.log(err)
+        const snackbar = new SnackBar();
+        snackbar.simple(err.error.non_field_errors[0]);
+      }
     )
   }
 }
